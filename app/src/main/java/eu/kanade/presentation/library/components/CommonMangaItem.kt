@@ -1,5 +1,6 @@
 package eu.kanade.presentation.library.components
 
+import android.graphics.Typeface
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
@@ -229,7 +230,7 @@ fun MangaComfortableGridItem(
                 modifier = Modifier.padding(4.dp),
                 title = title,
                 style = MaterialTheme.typography.titleSmall.copy(
-                    fontFamily = FontFamily("sans-serif-condensed"),
+                    fontFamily = FontFamily(Typeface.create("sans-serif-condensed", Typeface.NORMAL)),
                     fontWeight = FontWeight.Bold,
                 ),
                 minLines = 2,

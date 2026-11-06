@@ -1,5 +1,6 @@
 package eu.kanade.presentation.library.components
 
+import android.graphics.Typeface
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.LocalContentColor
@@ -79,7 +80,7 @@ private fun LibraryRegularToolbar(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = title.text.uppercase(),
-                    fontFamily = FontFamily("sans-serif-condensed"),
+                    fontFamily = FontFamily(Typeface.create("sans-serif-condensed", Typeface.NORMAL)),
                     fontWeight = FontWeight.Black,
                     fontSize = 30.sp,
                     maxLines = 1,
