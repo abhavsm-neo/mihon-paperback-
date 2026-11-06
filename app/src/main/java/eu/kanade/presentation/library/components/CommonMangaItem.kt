@@ -1,5 +1,6 @@
 package eu.kanade.presentation.library.components
 
+import android.graphics.Typeface
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LocalContentColor
@@ -30,8 +32,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -199,6 +204,7 @@ fun MangaComfortableGridItem(
                             .fillMaxWidth()
                             .alpha(if (isSelected) GRID_SELECTED_COVER_ALPHA else coverAlpha),
                         data = coverData,
+                        shape = RectangleShape,
                     )
                 },
                 badgesStart = coverBadgeStart,
@@ -216,10 +222,17 @@ fun MangaComfortableGridItem(
                     }
                 },
             )
+            HorizontalDivider(
+                modifier = Modifier.padding(top = 6.dp),
+                color = MaterialTheme.colorScheme.onSurface,
+            )
             GridItemTitle(
                 modifier = Modifier.padding(4.dp),
                 title = title,
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.titleSmall.copy(
+                    fontFamily = FontFamily(Typeface.create("sans-serif-condensed", Typeface.NORMAL)),
+                    fontWeight = FontWeight.Bold,
+                ),
                 minLines = 2,
                 maxLines = titleMaxLines,
             )

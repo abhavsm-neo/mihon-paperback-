@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.rememberTextFieldState
+import androidx.compose.foundation.text.input.setTextAndPlaceCursorAtEnd
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -47,26 +48,38 @@ fun ExtensionStoreCreateDialog(
             Text(text = stringResource(MR.strings.extensionStoresScreen_addStore_title))
         },
         text = {
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .focusRequester(focusRequester),
-                state = state,
-                label = {
-                    Text(text = stringResource(MR.strings.extensionStoresScreen_addStoreInput_inputLabel))
-                },
-                supportingText = {
-                    val msgRes = if (storeAlreadyExists) {
-                        MR.strings.extensionStoresScreen_addStore_alreadyExists
-                    } else {
-                        MR.strings.information_required_plain
-                    }
-                    Text(text = errorMessage ?: stringResource(msgRes))
-                },
-                isError = errorMessage != null || storeAlreadyExists,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
-                lineLimits = TextFieldLineLimits.SingleLine,
-            )
+            Column {
+                TextButton(
+                    enabled = !processing,
+                    onClick = {
+                        state.setTextAndPlaceCursorAtEnd(
+                            "https://github.com/keiyoushi/extensions/raw/repo/index.pb",
+                        )
+                    },
+                ) {
+                    Text(stringResource(MR.strings.paperback_use_keiyoushi))
+                }
+                OutlinedTextField(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .focusRequester(focusRequester),
+                    state = state,
+                    label = {
+                        Text(text = stringResource(MR.strings.extensionStoresScreen_addStoreInput_inputLabel))
+                    },
+                    supportingText = {
+                        val msgRes = if (storeAlreadyExists) {
+                            MR.strings.extensionStoresScreen_addStore_alreadyExists
+                        } else {
+                            MR.strings.information_required_plain
+                        }
+                        Text(text = errorMessage ?: stringResource(msgRes))
+                    },
+                    isError = errorMessage != null || storeAlreadyExists,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
+                    lineLimits = TextFieldLineLimits.SingleLine,
+                )
+            }
         },
         confirmButton = {
             TextButton(
