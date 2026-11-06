@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Mihon</string>
+    <string name="app_name" translatable="false">Reader</string>
 
     <!-- Generic strings -->
     <string name="on">On</string>
@@ -1095,4 +1095,6 @@
     <string name="donationCampaign.paragraph3">Regardless, Mihon will continue to be maintained by me and the volunteers, and it will stay open source.</string>
     <string name="donationCampaign.contactPlatform">Discord</string>
     <string name="donationCampaign.dismiss">Dismiss</string>
+    <string name="theme_paperback">Paperback</string>
+    <string name="paperback_use_keiyoushi">Use Keiyoushi URL</string>
 </resources>

@@ -10,6 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import eu.kanade.presentation.components.AppBar
@@ -76,7 +78,10 @@ private fun LibraryRegularToolbar(
         titleContent = {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = title.text,
+                    text = title.text.uppercase(),
+                    fontFamily = FontFamily("sans-serif-condensed"),
+                    fontWeight = FontWeight.Black,
+                    fontSize = 30.sp,
                     maxLines = 1,
                     modifier = Modifier.weight(1f, false),
                     overflow = TextOverflow.Ellipsis,
